@@ -76,7 +76,7 @@ int main(int argc, char const *argv[])
                 perror("dropping privilage failed");
                 exit(EXIT_FAILURE);
             } else {
-		        // Re-exec child process
+		// Re-exec child process
                 char server_fd_new[10];
                 sprintf(server_fd_new, "%d", new_socket);
                 char* args_new[] = {(char*)argv[0], server_fd_new, NULL};
@@ -90,7 +90,7 @@ int main(int argc, char const *argv[])
             wait(NULL);
         }        
     } else {
-	    // Read and format argv[1], i.e. file descriptor
+	// Read and format argv[1], i.e. file descriptor
         sscanf(argv[1], "%d", &new_socket);
 
         valread = read(new_socket, buffer, 1024);
